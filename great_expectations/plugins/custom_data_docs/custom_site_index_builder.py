@@ -156,7 +156,7 @@ class CustomSiteIndexBuilder(DefaultSiteIndexBuilder):
                 )
                 logger.warning(error_msg)
 
-        self.add_report_info_to_index_links_dict(index_links_dict, validation_result_keys)
+        self.add_report_info_to_index_links_dict(index_links_dict)
 
         try:
             rendered_content = self.renderer_class.render(index_links_dict)
@@ -180,7 +180,19 @@ diagnose and repair the underlying issue.  Detailed information follows:
         return (self.target_store.write_index_page(viewable_content), index_links_dict)
 
 
-    def add_report_info_to_index_links_dict(self, index_links_dict, keys):
+    def add_report_info_to_index_links_dict(self, index_links_dict):
+        validation_and_profiling_result_keys = [
+            ValidationResultIdentifier.from_tuple(validation_result_tuple)
+            for validation_result_tuple in self.target_store.store_backends[
+                ValidationResultIdentifier
+            ].list_keys()
+        ]
+        keys = [
+            validation_result_key
+            for validation_result_key in validation_and_profiling_result_keys
+            if validation_result_key.run_id.run_name != "profiling"
+        ]
+
         validations_store = self.data_context.validations_store
         if len(keys) == 0:
             raise ValueError("No keys found")
