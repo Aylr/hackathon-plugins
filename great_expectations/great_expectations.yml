@@ -111,6 +111,9 @@ data_docs_sites:
       base_directory: uncommitted/data_docs/local_site/
     site_index_builder:
       class_name: DefaultSiteIndexBuilder
+      renderer:
+        module_name: custom_data_docs.custom_site_index_page_renderer
+        class_name: CustomSiteIndexPageRenderer
 
 anonymous_usage_statistics:
   enabled: true
