@@ -151,7 +151,7 @@ class CustomSiteIndexPageRenderer(SiteIndexPageRenderer):
                 color="suite_name:N",
                 tooltip=["timestamp", "suite_name", "success_percent"],
             )
-            .properties(width=800, height=800, autosize="fit")
+            .properties(width=1000, height=500, autosize="fit")
         )
         chart = line_chart.to_json()
 
@@ -163,11 +163,16 @@ class CustomSiteIndexPageRenderer(SiteIndexPageRenderer):
                 "styling": {
                     "classes": [
                         "col-12",
-                        "m-3",
+                        "mt-2",
                         "pl-1",
                         "pr-1",
                     ],
-                    "parent": {"styles": {"list-style-type": "none"}},
+                    "parent": {
+                        "styles": {"list-style-type": "none"},
+                        "classes": [
+                            "m-2"
+                        ]
+                    },
                 },
             }
         )
