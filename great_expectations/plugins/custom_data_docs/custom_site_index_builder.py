@@ -181,13 +181,13 @@ diagnose and repair the underlying issue.  Detailed information follows:
 
 
     def add_report_info_to_index_links_dict(self, index_links_dict, keys):
-        validation_store = self.data_context.validation_store
+        validations_store = self.data_context.validations_store
         if len(keys) == 0:
             raise ValueError("No keys found")
         rows = []
         for key in keys:
             try:
-                result = validation_store.get(key)
+                result = validations_store.get(key)
                 meta = result.meta
                 run_time = meta["run_id"]["run_time"]
                 suite_name = meta.get("expectation_suite_name", None)
