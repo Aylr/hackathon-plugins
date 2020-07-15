@@ -1,22 +1,16 @@
 #!/usr/bin/env python
 
-import json
 import subprocess
 import altair as alt
 import pandas as pd
 
 import great_expectations as ge
 
-# results = {
-#     "20200101": {
-#         "suite_1": {"success_percent": 0.0},
-#         "suite_2": {"success_percent": 0.5},
-#     }
-# }
-
 
 def get_validation_results_metrics_dataframe(validation_store) -> pd.DataFrame:
     keys = validation_store.list_keys()
+    if len(keys) == 0:
+        raise ValueError("No keys found")
     print(f"Processing {len(keys)} keys...")
     rows = []
     for key in keys:
@@ -38,7 +32,11 @@ def get_validation_results_metrics_dataframe(validation_store) -> pd.DataFrame:
                 )
         except (FileNotFoundError, ge.exceptions.InvalidKeyError) as fe:
             print(f"Skipping {key} - not found")
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    df.columns = ["timestamp", "suite_name", "success_percent"]
+    print(df.columns)
+
+    return df.sort_values(by="timestamp", axis="index")
 
 
 def create_chart(df: pd.DataFrame) -> alt.Chart:
@@ -46,8 +44,8 @@ def create_chart(df: pd.DataFrame) -> alt.Chart:
         alt.Chart(df)
         .mark_line(point=True)
         .encode(
-            x="timestamp",
-            y="success_percent",
+            x="timestamp:T",
+            y="success_percent:Q",
             color="suite_name:N",
             tooltip=["timestamp", "suite_name", "success_percent"],
         )
