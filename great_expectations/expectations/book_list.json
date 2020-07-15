@@ -1,0 +1,675 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "book_list",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "max_value": 141,
+        "min_value": 116
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_table_column_count_to_equal",
+      "kwargs": {
+        "value": 30
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "Name",
+          "Dates associated with name",
+          "Type of name",
+          "Role",
+          "Other names",
+          "BL record ID",
+          "Type of resource",
+          "Content type",
+          "Material type",
+          "BNB number",
+          "Archival Resource Key",
+          "ISBN",
+          "Title",
+          "Variant titles",
+          "Series title",
+          "Number within series",
+          "Country of publication",
+          "Place of publication",
+          "Publisher",
+          "Date of creation/publication",
+          "Edition",
+          "Physical description",
+          "Dewey classification",
+          "BL shelfmark",
+          "Topics",
+          "Genre",
+          "Languages",
+          "Notes",
+          "Provenance",
+          "year"
+        ]
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "Name"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Name"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "Name",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "BL record ID"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "BL record ID"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_min_to_be_between",
+      "kwargs": {
+        "column": "BL record ID",
+        "max_value": 14929594,
+        "min_value": 14929592
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_max_to_be_between",
+      "kwargs": {
+        "column": "BL record ID",
+        "max_value": 18689885,
+        "min_value": 18689883
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "BL record ID",
+        "max_value": 15754693.503875969,
+        "min_value": 15754691.503875969
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_median_to_be_between",
+      "kwargs": {
+        "column": "BL record ID",
+        "max_value": 15577208.0,
+        "min_value": 15577206.0
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_quantile_values_to_be_between",
+      "kwargs": {
+        "allow_relative_error": false,
+        "column": "BL record ID",
+        "quantile_ranges": {
+          "quantiles": [
+            0.05,
+            0.25,
+            0.5,
+            0.75,
+            0.95
+          ],
+          "value_ranges": [
+            [
+              15409273,
+              15409275
+            ],
+            [
+              15520941,
+              15520943
+            ],
+            [
+              15577206,
+              15577208
+            ],
+            [
+              15629260,
+              15629262
+            ],
+            [
+              17819332,
+              17819334
+            ]
+          ]
+        }
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "BNB number"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "BNB number",
+        "mostly": 0.822
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "BNB number",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "ISBN"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "ISBN",
+        "mostly": 0.884
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "ISBN",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "Title"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Title"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "Title",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "Dewey classification"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Dewey classification",
+        "mostly": 0.877
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_min_to_be_between",
+      "kwargs": {
+        "column": "Dewey classification",
+        "max_value": 233.90099999999998,
+        "min_value": 231.90099999999998
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_max_to_be_between",
+      "kwargs": {
+        "column": "Dewey classification",
+        "max_value": 943.1,
+        "min_value": 941.1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "Dewey classification",
+        "max_value": 798.3355275757301,
+        "min_value": 796.3355275757301
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_median_to_be_between",
+      "kwargs": {
+        "column": "Dewey classification",
+        "max_value": 824.8,
+        "min_value": 822.8
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_quantile_values_to_be_between",
+      "kwargs": {
+        "allow_relative_error": false,
+        "column": "Dewey classification",
+        "quantile_ranges": {
+          "quantiles": [
+            0.05,
+            0.25,
+            0.5,
+            0.75,
+            0.95
+          ],
+          "value_ranges": [
+            [
+              740.5,
+              742.5
+            ],
+            [
+              821.914,
+              823.914
+            ],
+            [
+              822.8,
+              824.8
+            ],
+            [
+              822.8,
+              824.8
+            ],
+            [
+              823.8,
+              825.8
+            ]
+          ]
+        }
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "BL shelfmark"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "BL shelfmark",
+        "mostly": 0.675
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "BL shelfmark",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "Topics"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Topics",
+        "mostly": 0.807
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "Topics",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_unique",
+      "kwargs": {
+        "column": "Genre"
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "Genre",
+        "mostly": 0.474
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_column_value_lengths_to_be_between",
+      "kwargs": {
+        "column": "Genre",
+        "min_value": 1
+      },
+      "meta": {
+        "BasicSuiteBuilderProfiler": {
+          "confidence": "very low"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "BasicSuiteBuilderProfiler": {
+      "batch_kwargs": {
+        "data_asset_name": "dickens_research_data_2010",
+        "datasource": "annual__dir",
+        "path": "/Users/talgluck/Documents/ge_main/annual/dickens_research_data_2010.csv"
+      },
+      "created_at": 1594832747.710294,
+      "created_by": "BasicSuiteBuilderProfiler"
+    },
+    "citations": [
+      {
+        "batch_kwargs": {
+          "data_asset_name": "dickens_research_data_2010",
+          "datasource": "annual__dir",
+          "path": "/Users/talgluck/Documents/ge_main/annual/dickens_research_data_2010.csv"
+        },
+        "batch_markers": {
+          "ge_load_time": "20200715T170547.379441Z",
+          "pandas_data_fingerprint": "4abe6db3dd8c0e7ac715d19eb7798240"
+        },
+        "batch_parameters": null,
+        "citation_date": "20200715T170547.838632Z",
+        "comment": "BasicSuiteBuilderProfiler added a citation based on the current batch."
+      }
+    ],
+    "columns": {
+      "Archival Resource Key": {
+        "description": ""
+      },
+      "BL record ID": {
+        "description": ""
+      },
+      "BL shelfmark": {
+        "description": ""
+      },
+      "BNB number": {
+        "description": ""
+      },
+      "Content type": {
+        "description": ""
+      },
+      "Country of publication": {
+        "description": ""
+      },
+      "Date of creation/publication": {
+        "description": ""
+      },
+      "Dates associated with name": {
+        "description": ""
+      },
+      "Dewey classification": {
+        "description": ""
+      },
+      "Edition": {
+        "description": ""
+      },
+      "Genre": {
+        "description": ""
+      },
+      "ISBN": {
+        "description": ""
+      },
+      "Languages": {
+        "description": ""
+      },
+      "Material type": {
+        "description": ""
+      },
+      "Name": {
+        "description": ""
+      },
+      "Notes": {
+        "description": ""
+      },
+      "Number within series": {
+        "description": ""
+      },
+      "Other names": {
+        "description": ""
+      },
+      "Physical description": {
+        "description": ""
+      },
+      "Place of publication": {
+        "description": ""
+      },
+      "Provenance": {
+        "description": ""
+      },
+      "Publisher": {
+        "description": ""
+      },
+      "Role": {
+        "description": ""
+      },
+      "Series title": {
+        "description": ""
+      },
+      "Title": {
+        "description": ""
+      },
+      "Topics": {
+        "description": ""
+      },
+      "Type of name": {
+        "description": ""
+      },
+      "Type of resource": {
+        "description": ""
+      },
+      "Variant titles": {
+        "description": ""
+      },
+      "year": {
+        "description": ""
+      }
+    },
+    "great_expectations.__version__": "0.11.7+18.g81f85365.dirty",
+    "notes": {
+      "content": [
+        "_To add additional notes, edit the <code>meta.notes.content</code> field in the appropriate Expectation json file._"
+      ],
+      "format": "markdown"
+    }
+  }
+}

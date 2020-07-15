@@ -110,8 +110,10 @@ data_docs_sites:
       class_name: TupleFilesystemStoreBackend
       base_directory: uncommitted/data_docs/local_site/
     site_index_builder:
-      class_name: DefaultSiteIndexBuilder
+      module_name: custom_data_docs.custom_site_index_builder
+      class_name: CustomSiteIndexBuilder
 
 anonymous_usage_statistics:
   enabled: true
-  data_context_id: e2395589-628c-45ae-9453-438b95a846ca
+  data_context_id: 817b96e7-1989-43d1-a9d8-f36cd81d9a45
+notebooks:
