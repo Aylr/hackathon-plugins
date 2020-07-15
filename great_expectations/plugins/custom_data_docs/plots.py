@@ -17,6 +17,8 @@ import great_expectations as ge
 
 def get_validation_results_metrics_dataframe(validation_store) -> pd.DataFrame:
     keys = validation_store.list_keys()
+    if len(keys) == 0:
+        raise ValueError("No keys found")
     print(f"Processing {len(keys)} keys...")
     rows = []
     for key in keys:
@@ -38,7 +40,11 @@ def get_validation_results_metrics_dataframe(validation_store) -> pd.DataFrame:
                 )
         except (FileNotFoundError, ge.exceptions.InvalidKeyError) as fe:
             print(f"Skipping {key} - not found")
-    return pd.DataFrame(rows)
+    df = pd.DataFrame(rows)
+    df.columns = ["timestamp", "suite_name", "success_percent"]
+    print(df.columns)
+
+    return df.sort_values(by="timestamp", axis="index")
 
 
 def create_chart(df: pd.DataFrame) -> alt.Chart:
