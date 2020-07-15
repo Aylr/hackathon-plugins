@@ -5,6 +5,10 @@ import traceback
 
 import tzlocal
 from dateutil.parser import parse
+
+import altair as alt
+import pandas as pd
+
 from great_expectations.render.renderer import CallToActionRenderer, SiteIndexPageRenderer
 from great_expectations.render.renderer.renderer import Renderer
 
@@ -14,7 +18,7 @@ from great_expectations.render.types import (
     RenderedHeaderContent,
     RenderedSectionContent,
     RenderedStringTemplateContent,
-    RenderedTabsContent,
+    RenderedTabsContent, RenderedGraphContent,
 )
 
 logger = logging.getLogger(__name__)
@@ -84,6 +88,15 @@ class CustomSiteIndexPageRenderer(SiteIndexPageRenderer):
                         ),
                     }
                 )
+            if index_links_dict.get("report_df"):
+                tabs.append(
+                    {
+                        "tab_name": "Reports",
+                        "tab_content": cls._generate_report_chart(
+                            report_df=index_links_dict.get("report_df")
+                        )
+                    }
+                )
 
             tabs_content_block = RenderedTabsContent(
                 **{
@@ -126,3 +139,35 @@ class CustomSiteIndexPageRenderer(SiteIndexPageRenderer):
                 f'{type(e).__name__}: "{str(e)}".  Traceback: "{exception_traceback}".'
             )
             logger.error(exception_message, e, exc_info=True)
+
+    @classmethod
+    def _generate_report_chart(cls, report_df):
+        line_chart = (
+            alt.Chart(report_df)
+            .mark_line(point=True)
+            .encode(
+                x="timestamp:T",
+                y="success_percent:Q",
+                color="suite_name:N",
+                tooltip=["timestamp", "suite_name", "success_percent"],
+            )
+            .properties(width=1000, height=1000, autosize="fit")
+        )
+        chart = line_chart.to_json()
+
+        return RenderedGraphContent(
+            **{
+                "content_block_type": "graph",
+                "graph": chart,
+                "header": "Data Quality Score™",
+                "styling": {
+                    "classes": [
+                        "col-12",
+                        "mt-2",
+                        "pl-1",
+                        "pr-1",
+                    ],
+                    "parent": {"styles": {"list-style-type": "none"}},
+                },
+            }
+        )
