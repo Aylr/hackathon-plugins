@@ -1,18 +1,10 @@
 #!/usr/bin/env python
 
-import json
 import subprocess
 import altair as alt
 import pandas as pd
 
 import great_expectations as ge
-
-# results = {
-#     "20200101": {
-#         "suite_1": {"success_percent": 0.0},
-#         "suite_2": {"success_percent": 0.5},
-#     }
-# }
 
 
 def get_validation_results_metrics_dataframe(validation_store) -> pd.DataFrame:
@@ -52,8 +44,8 @@ def create_chart(df: pd.DataFrame) -> alt.Chart:
         alt.Chart(df)
         .mark_line(point=True)
         .encode(
-            x="timestamp",
-            y="success_percent",
+            x="timestamp:T",
+            y="success_percent:Q",
             color="suite_name:N",
             tooltip=["timestamp", "suite_name", "success_percent"],
         )
