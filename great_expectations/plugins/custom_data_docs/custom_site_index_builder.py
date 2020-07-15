@@ -180,4 +180,31 @@ diagnose and repair the underlying issue.  Detailed information follows:
 
 
     def add_report_info_to_index_links_dict(self, index_links_dict, validation_result_keys):
-        pass
+        if len(keys) == 0:
+            raise ValueError("No keys found")
+        print(f"Processing {len(keys)} keys...")
+        rows = []
+        for key in keys:
+            try:
+                result = validation_store.get(key)
+                meta = result.meta
+                run_time = meta["run_id"]["run_time"]
+                suite_name = meta.get("expectation_suite_name", None)
+                print(f"{run_time} - {suite_name}:")
+
+                stats = result.statistics
+                if run_time and stats:
+                    rows.append(
+                        {
+                            "timestamp": run_time,
+                            "suite_name": suite_name,
+                            "success_percent": stats["success_percent"],
+                        }
+                    )
+            except (FileNotFoundError, ge.exceptions.InvalidKeyError) as fe:
+                print(f"Skipping {key} - not found")
+        df = pd.DataFrame(rows)
+        df.columns = ["timestamp", "suite_name", "success_percent"]
+        print(df.columns)
+
+        index_link_dict["report_df"] = df.sort_values(by="timestamp", axis="index")
