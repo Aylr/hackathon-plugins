@@ -179,10 +179,9 @@ diagnose and repair the underlying issue.  Detailed information follows:
         return (self.target_store.write_index_page(viewable_content), index_links_dict)
 
 
-    def add_report_info_to_index_links_dict(self, index_links_dict, validation_result_keys):
+    def add_report_info_to_index_links_dict(self, index_links_dict, keys):
         if len(keys) == 0:
             raise ValueError("No keys found")
-        print(f"Processing {len(keys)} keys...")
         rows = []
         for key in keys:
             try:
@@ -190,7 +189,6 @@ diagnose and repair the underlying issue.  Detailed information follows:
                 meta = result.meta
                 run_time = meta["run_id"]["run_time"]
                 suite_name = meta.get("expectation_suite_name", None)
-                print(f"{run_time} - {suite_name}:")
 
                 stats = result.statistics
                 if run_time and stats:
@@ -202,7 +200,7 @@ diagnose and repair the underlying issue.  Detailed information follows:
                         }
                     )
             except (FileNotFoundError, ge.exceptions.InvalidKeyError) as fe:
-                print(f"Skipping {key} - not found")
+                pass
         df = pd.DataFrame(rows)
         df.columns = ["timestamp", "suite_name", "success_percent"]
         print(df.columns)
