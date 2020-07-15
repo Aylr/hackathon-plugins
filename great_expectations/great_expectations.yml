@@ -13,21 +13,7 @@ config_version: 2.0
 # Datasources tell Great Expectations where your data lives and how to get it.
 # You can use the CLI command `great_expectations datasource new` to help you
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/features/datasource.html
-<<<<<<< HEAD
-datasources:
-  annual__dir:
-    data_asset_type:
-      module_name: great_expectations.dataset
-      class_name: PandasDataset
-    module_name: great_expectations.datasource
-    class_name: PandasDatasource
-    batch_kwargs_generators:
-      subdir_reader:
-        class_name: SubdirReaderBatchKwargsGenerator
-        base_directory: /Users/talgluck/Documents/ge_main/annual
-=======
 datasources: {}
->>>>>>> b36a73b6dce15ed9721a93eb81b48e3a976987b9
 
 # This config file supports variable substitution which enables: 1) keeping
 # secrets out of source control & 2) environment-based configuration changes
@@ -111,7 +97,7 @@ expectations_store_name: expectations_store
 validations_store_name: validations_store
 evaluation_parameter_store_name: evaluation_parameter_store
 
-data_docs_sites: 
+data_docs_sites:
   # Data Docs make it simple to visualize data quality in your project. These
   # include Expectations, Validations & Profiles. The are built for all
   # Datasources from JSON artifacts in the local repo including validations &
