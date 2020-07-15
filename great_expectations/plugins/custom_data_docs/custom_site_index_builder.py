@@ -217,5 +217,5 @@ diagnose and repair the underlying issue.  Detailed information follows:
             except (FileNotFoundError, exceptions.InvalidKeyError) as fe:
                 pass
         df = pandas.DataFrame(rows)
-        df.columns = ["timestamp", "suite_name", "success_percent"]
+        df.columns = ["timestamp", "suite_name", "success_percent", "evaluated_expectations"]
         index_links_dict["report_df"] = df.sort_values(by="timestamp", axis="index")
