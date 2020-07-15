@@ -4,7 +4,8 @@ import traceback
 from collections import OrderedDict
 
 import great_expectations.exceptions as exceptions
-from great_expectations.core import nested_update
+import pandas
+from great_expectations.core import logger, nested_update
 from great_expectations.data_context.store.html_site_store import (
     HtmlSiteStore,
     SiteSectionIdentifier,
@@ -180,6 +181,7 @@ diagnose and repair the underlying issue.  Detailed information follows:
 
 
     def add_report_info_to_index_links_dict(self, index_links_dict, keys):
+        validation_store = self.data_context.validation_store
         if len(keys) == 0:
             raise ValueError("No keys found")
         rows = []
@@ -197,12 +199,11 @@ diagnose and repair the underlying issue.  Detailed information follows:
                             "timestamp": run_time,
                             "suite_name": suite_name,
                             "success_percent": stats["success_percent"],
+                            "evaluated_expectations": stats["evaluated_expectations"],
                         }
                     )
-            except (FileNotFoundError, ge.exceptions.InvalidKeyError) as fe:
+            except (FileNotFoundError, exceptions.InvalidKeyError) as fe:
                 pass
-        df = pd.DataFrame(rows)
+        df = pandas.DataFrame(rows)
         df.columns = ["timestamp", "suite_name", "success_percent"]
-        print(df.columns)
-
-        index_link_dict["report_df"] = df.sort_values(by="timestamp", axis="index")
+        index_links_dict["report_df"] = df.sort_values(by="timestamp", axis="index")
